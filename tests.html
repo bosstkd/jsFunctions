@@ -60,6 +60,14 @@ function MyFunction3(){
   var v = strMatcher(getElementValue('txtRegex'),getElementValue('rg'));
   setElementInnerHtml("test3",v);
   
+   if(v){
+      changeElementColor("test3", "green");
+	  changeElementFont("test3", "20px", "Monospace", "italic", "bold");
+   }else{
+      changeElementColor("test3", "red");
+	  changeElementFont("test3", "14px", "Monospace", "", "normal");
+   }
+  
    console.log(getListStringFromParagraph(getElementValue('txt')));
    console.log(getListIntFromParagraph(getElementValue('txt')));
    console.log(getListDoubleFromParagraph(getElementValue('txt')));
