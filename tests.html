@@ -11,8 +11,11 @@
   <li>Tea</li>
   <li>Milk</li>
   <li>Selecto</li>
-  <li> <input id="txt" type="text" value="" /></li>
-  <li> <input id="nb" type="text" value="0" /></li>
+  <li> champ texte : <input id="txt" type="text" value="" /></li>
+  <li> visibility : <input id="nb" type="text" value="0" /></li>
+  <li/>
+  <li> regex : <input id="rg" type="text" value="" /></li>
+  <li> txtRegex : <input id="txtRegex" type="text" value="" /></li>
   
 </ul>
 
@@ -22,6 +25,7 @@
 <button onclick="myFunction2()">empty</button>
 <button onclick="setElementStatuSwitch('txt')">switch</button>
 <button onclick="setElementVisibility('test2', getElementValue('nb'))">visibility</button>
+<button onclick="MyFunction3()">regex test</button>
 
 <p id="demo"></p>
 <p id="test1"></p>
@@ -52,6 +56,16 @@ function myFunction2(){
 	setElementValue("txt", "");
 }
 
+function MyFunction3(){
+  var v = strMatcher(getElementValue('txtRegex'),getElementValue('rg'));
+  setElementInnerHtml("test3",v);
+  
+   console.log(getListStringFromParagraph(getElementValue('txt')));
+   console.log(getListIntFromParagraph(getElementValue('txt')));
+   console.log(getListDoubleFromParagraph(getElementValue('txt')));
+   
+
+}
 
 
 </script>

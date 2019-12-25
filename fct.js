@@ -86,6 +86,11 @@ function setElementValue(id, value){
 	 elt.value = value;
 }
 
+function setElementInnerHtml(id, value){
+     var elt = getById(id);
+	 elt.innerHTML = value;
+}
+
 // change l'etat de l'element entre enable/disable;
 function setElementStatus(id, state){
 	var elt = getById(id);
@@ -114,4 +119,46 @@ function setElementVisibility(id, entier){
 			  }
 }
 
+
+//---------String traitement-------------------------------
+function strMatcher(str, regex) {
+  var res = str.match(regex);
+  return res != null 
+}
+
+// liste de mots depuis un paragraph;
+function getListStringFromParagraph(paragraph){
+	var regex = /[A-Za-z_]*/g;
+	var found = paragraph.match(regex);
+	var fList = [];
+	for(let i=0; i<found.length; i++){
+		if(found[i] != "") fList.push(found[i]);
+	}
+
+	return fList;
+}
+
+// liste d'entier depuis un paragraph;
+function getListIntFromParagraph(paragraph){
+	var regex = /[0-9]*/g;
+	var found = paragraph.match(regex);
+	var fList = [];
+	for(let i=0; i<found.length; i++){
+		if(found[i] != "") fList.push(found[i]);
+	}
+
+	return fList;
+}
+
+// liste double depuis un paragraph;
+function getListDoubleFromParagraph(paragraph){
+	var regex = /[0-9]*\.[0-9]*/g;
+	var found = paragraph.match(regex);
+	var fList = [];
+	for(let i=0; i<found.length; i++){
+		if(found[i] != "") fList.push(found[i]);
+	}
+
+	return fList;
+}
  
