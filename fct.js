@@ -98,7 +98,7 @@ function setElementStatuSwitch(id){
 	elt.disabled = !elt.disabled;
 }
 
-// met un switch sur (0:(visible), 1(cachet), 2(cachet et position eleminé)) par l'id.
+// met un switch sur (0:(visible), 1(cachet), 2(cachet et position éliminé)) par l'id.
 function setElementVisibility(id, entier){
 	var x = document.getElementById(id);
 	
