@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="fct.js"></script> 
+</head>
+<body>
+
+<p>An unordered list:</p>
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+  <li>Selecto</li>
+  <li> <input id="txt" type="text" value="" /></li>
+  <li> <input id="nb" type="text" value="0" /></li>
+  
+</ul>
+
+<p>USE BUTTONS TO TRY ACTIONS.</p>
+
+<button onclick="myFunction()">Try it</button>
+<button onclick="myFunction2()">empty</button>
+<button onclick="setElementStatuSwitch('txt')">switch</button>
+<button onclick="setElementVisibility('test2', getElementValue('nb'))">visibility</button>
+
+<p id="demo"></p>
+<p id="test1"></p>
+<p id="test2"></p>
+<p id="test3"></p>
+
+
+<script>
+function myFunction() {
+ 
+  setElementsIdAsName("LI");
+  var x = getById("LI_3");
+  
+  document.getElementById("demo").innerHTML = getElementValue("txt"); 
+  document.getElementById("test1").innerHTML = x.id; 
+  document.getElementById("test2").innerHTML = x.innerHTML; 
+  document.getElementById("test3").innerHTML = x.id; 
+  //---------------
+  changeElementColor("test1", "blue");
+  changeElementFont("LI_3", "17px", "", "italic", "bold");
+  changeElementCSSColors("txt", "red", "red", "yellow");
+  
+  changeElementBorderStyle("txt", "", "3px", "5px");
+  
+}
+//-------------------------------------------------
+function myFunction2(){
+	setElementValue("txt", "");
+}
+
+
+
+</script>
+
+</body>
+</html>
