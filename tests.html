@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<p>An unordered list:</p>
+<label>An unordered list:</label>
 <ul>
   <li>Coffee</li>
   <li>Tea</li>
@@ -19,7 +19,7 @@
   
 </ul>
 
-<p>USE BUTTONS TO TRY ACTIONS.</p>
+<label>USE BUTTONS TO TRY ACTIONS.</label>
 
 <button onclick="myFunction()">Try it</button>
 <button onclick="myFunction2()">empty</button>
@@ -34,6 +34,21 @@
 
 
 <script>
+
+var eltTab = getByElementsTagName("label");
+				for(var i = 0; i<eltTab.length; i++){
+					  eltTab[i].setAttribute("id", "label"+"_"+i);
+				}
+
+
+ var elt = document.getElementById("label_0");
+			   elt.style.color = "orange";
+			   elt.style.fontSize = "17px";
+			   elt.style.fontFamily = "monospace";
+			   elt.style.fontWeight = "bold";
+
+
+
 function myFunction() {
  
   setElementsIdAsName("LI");
@@ -71,7 +86,7 @@ function MyFunction3(){
    console.log(getListStringFromParagraph(getElementValue('txt')));
    console.log(getListIntFromParagraph(getElementValue('txt')));
    console.log(getListDoubleFromParagraph(getElementValue('txt')));
-   
+   console.log(person.fullName());
 
 }
 
