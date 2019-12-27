@@ -160,14 +160,38 @@
 
 				return fList;
 			}
-			
-var person = {
-  firstName:"John",
-  lastName: "Doe",
-  fullName: function () {
-    return this.firstName + " " + this.lastName;
-  }
+
+//-----------effect functions---------------------
+
+
+//  comme son nom l'indique permet de faire clignoter un objet			
+function clignote(id, timing){
+	var elt = getById(id);
+	
+	if(elt.style.visibility==='visible'){
+		elt.style.visibility='hidden';
+	}else{
+		elt.style.visibility='visible';
+	}
+	setTimeout("clignote('"+id+"', "+timing+")", timing);
 }
+
+
+//  permet de permuter l'opacité de l'objet signe doit etre -1	
+function oppacity(id, signe){
+	var elt = getById(id);
+	
+	if(elt.style.opacity >= 0.96) signe = -1;
+		
+	if(elt.style.opacity <= 0.04) signe = 1;
+		
+	elt.style.opacity = (elt.style.opacity * 1) + (signe * 0.04);
+	
+	setTimeout("oppacity('"+id+"',"+signe+")", 85 );
+}
+	
+	
+	
 
 
  
