@@ -4,7 +4,7 @@
  <script src="fct.js"></script> 
 </head>
 <body>
-
+<h3 id="dat">dates</h3><br/>
 <label>An unordered list:</label>
 <ul>
   <li>Coffee</li>
@@ -35,8 +35,12 @@
 
 <script>
 
+dateAndHourOnEltHTML("dat");
 
+var lstChars = "\"*\'/\\";
+NACOnKeyUpDo("txt", lstChars);
 
+//--------------------------
 var eltTab = getByElementsTagName("label");
 				for(var i = 0; i<eltTab.length; i++){
 					  eltTab[i].setAttribute("id", "label"+"_"+i);

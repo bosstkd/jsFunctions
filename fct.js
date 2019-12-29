@@ -189,9 +189,97 @@ function oppacity(id, signe){
 	
 	setTimeout("oppacity('"+id+"',"+signe+")", 85 );
 }
+
+//----------- traitement Caractères spéciaux ----------------------------------------  
 	
+//retourne la chaine de caractère de l'element et remplace la listChars par null('');	
+function notAcceptChar(id, listChars){
+	var elt = getById(id);
+	let str = elt.value;
+	let i = 0;
+	for(i = 0; i < listChars.length; i++){
+		if(str.includes(listChars[i])) str = str.split(listChars[i]).join('');
+	}
+	return str;
+}	
+
+//modifie la valeur de l'element en remplaçon les caracteres de la listChars par '';
+function NACOnInputText(id, listChars){
+	var elt = getById(id);
+	var str = notAcceptChar(id, listChars);
+	elt.value = str;
+}
+
+//meme chose que NACOnInputText(id, listChars) sauf la réaction onkeyup;
+function NACOnKeyUpDo(id, listChars){
+	var elt = getById(id);
+	let i = 0;
+	let str = ""
+	for(i=0; i<listChars.length; i++){
+		if(listChars[i] === "\"") 
+			str = str + "\\\"";
+	else if(listChars[i] === "\\") 
+			str = str + "\\\\";	
+	else
+			str = str + listChars[i];
+	}
 	
-	
+	elt.setAttribute("onkeyup", 'NACOnInputText("'+id+'", "'+str+'" )');
+}
 
 
- 
+//-------------------- date et heures ----------------------------
+// formatage de la date
+function formatDate(date) {
+	
+  var monthNames = [
+    "Janvier", "Fevrier", "Mars",
+    "Avril", "Mai", "Juin", "Juillet",
+    "Aout", "Septembre", "Octobre",
+    "Novembre", "Decembre"
+  ];
+
+  var jour = date.getDate();
+  var indexMois = date.getMonth();
+  var annee = date.getFullYear();
+
+  return jour + ' ' + monthNames[indexMois] + ' ' + annee;
+}
+
+// retourne la date d'aujourd'hui formater
+function myDate(){
+	let dt = new Date();
+	return formatDate(dt);
+} 
+
+// Retourne l'heure actuel
+function myHour(){
+	let dt = new Date();
+	return  zeroNbr(dt.getHours())+":"+zeroNbr(dt.getMinutes())+":"+zeroNbr(dt.getSeconds());
+}
+
+// Retourne la date et l'heure actuel.
+function dateAndHour(){
+	return myDate()+" "+myHour();
+}
+
+// Ecrire la date et l'heure sur un element HTML
+function dateAndHourOnEltHTML(id){
+	setElementInnerHtml(id, dateAndHour());
+	setTimeout("dateAndHourOnEltHTML('"+id+"')");
+}
+
+// Ecrire la date et l'heure sur un element qui accepte une valeur.
+function dateAndHourOnEltValue(id){
+	setElementValue(id, dateAndHour());
+	setTimeout("dateAndHourOnEltValue('"+id+"')");
+}
+
+//-------------------------------------------------
+
+function zeroNbr(i){
+	if(i<9) 
+		return "0"+i;
+	else 
+		return i;
+}
