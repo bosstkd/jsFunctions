@@ -275,6 +275,22 @@ function dateAndHourOnEltValue(id){
 	setTimeout("dateAndHourOnEltValue('"+id+"')");
 }
 
+//---------------Session---------------------------
+
+// Sauvegarde en session
+function saveInSession(idInfo, info){
+		if (typeof(Storage) !== "undefined") {
+		  sessionStorage.setItem(idInfo, info);
+		  return true;
+		}
+		  return false;
+}
+
+// Extraction d'information depuis la session
+function getFromSession(idInfo){
+	return sessionStorage.getItem(idInfo);
+}
+
 //-------------------------------------------------
 
 function zeroNbr(i){
@@ -282,3 +298,5 @@ function zeroNbr(i){
 		return "0"+i;
 		return i;
 }
+
+
