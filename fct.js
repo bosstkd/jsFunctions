@@ -300,3 +300,12 @@ function zeroNbr(i){
 }
 
 
+// Object to test
+var person = {
+  firstName : "Mahmoudi",
+  lastName  : "Mohammed El Amine",
+  age     : 33,
+  eyeColor  : "brown"
+};
+
+

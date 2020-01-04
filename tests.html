@@ -62,14 +62,23 @@ function myFunction() {
   var x = getById("LI_3");
   
   document.getElementById("demo").innerHTML = getElementValue("txt"); 
-  document.getElementById("test1").innerHTML = x.id; 
+  
+    var user = {
+	'nom':'Mahmoudi',
+	'prenom':'Mohammed El Amine'
+	};
+	saveInSession('user', JSON.stringify(user));
+	var obj = JSON.parse(getFromSession('user'));
+    document.getElementById("test1").innerHTML = obj.nom+" "+obj.prenom; 
+  
   document.getElementById("test2").innerHTML = x.innerHTML; 
-  document.getElementById("test3").innerHTML = x.id; 
+  
+  var prs = person;
+  document.getElementById("test3").innerHTML = prs.firstName; 
   //---------------
   changeElementColor("test1", "blue");
   changeElementFont("LI_3", "17px", "", "italic", "bold");
   changeElementCSSColors("txt", "red", "red", "yellow");
-  
   changeElementBorderStyle("txt", "", "3px", "5px");
   
 }
