@@ -13,7 +13,10 @@
   <li>Selecto</li>
   <li> champ texte : <input id="txt" type="text" value="" /></li>
   <li> visibility : <input id="nb" type="text" value="0" /></li>
-  <li/>
+  
+  <br/>
+  <br/>
+  <input type="checkbox" id="scales" name="scales" checked>
   <li> regex : <input id="rg" type="text" value="" /></li>
   <li> txtRegex : <input id="txtRegex" type="text" value="" /></li>
   
@@ -26,6 +29,7 @@
 <button onclick="setElementStatuSwitch('txt')">switch</button>
 <button onclick="setElementVisibility('test2', getElementValue('nb'))">visibility</button>
 <button onclick="MyFunction3()">regex test</button>
+<button onclick="simulateClick('scales')">simulate click</button>
 
 <p id="demo"></p>
 <p id="test1"></p>
@@ -34,6 +38,8 @@
 
 
 <script>
+
+
 
 dateAndHourOnEltHTML("dat");
 
