@@ -305,3 +305,17 @@ function simulateClick(id){
 	elt.click();
 }
 
+//----- fetch test ------
+
+// Call the fetch function passing the url of the API as a parameter
+function toFetchInfo(url){
+	fetch(url) 
+		.then((resp) => resp.json())
+		.then(function(data){
+			console.log(data.results);
+		})
+		.catch(function(error) {
+			console.log(error);
+		  });   
+}
+
