@@ -108,14 +108,14 @@
 				
 				console.log(id+" "+entier);
 				
-					 if (entier === '0'){
+					 if (entier === '0')
 							x.style.visibility = 'visible';
-						  } else 
-					 if (entier === '1'){
+						   else 
+					 if (entier === '1')
 							x.style.visibility = 'hidden';
-						  }else{
+						  else
 							x.style.visibility = 'collapse';
-						  }
+						  
 			}
 
 
