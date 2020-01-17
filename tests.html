@@ -30,39 +30,40 @@
 <button onclick="setElementVisibility('test2', getElementValue('nb'))">visibility</button>
 <button onclick="MyFunction3()">regex test</button>
 <button onclick="simulateClick('scales')">simulate click</button>
-<button onclick="toFetchInfo('https://randomuser.me/api/?results=10')">testFetch</button>
+<button onclick="MyFunction4()">get by ids</button>
 
 <p id="demo"></p>
 <p id="test1"></p>
 <p id="test2"></p>
 <p id="test3"></p>
 
+ <h4>Coffee</h4>
+ <h4>Milk</h4>
+ <h4>Coca</h4>
+ <h4>Tea</h4>
+ <h4>Jus</h4>
+
+
 
 <script>
 
-
+idsAdder("h4");
 
 dateAndHourOnEltHTML("dat");
-
 var lstChars = "\"*\'/\\";
 NACOnKeyUpDo("txt", lstChars);
-
 //--------------------------
 var eltTab = getByElementsTagName("label");
 				for(var i = 0; i<eltTab.length; i++){
 					  eltTab[i].setAttribute("id", "label"+"_"+i);
 				}
-
-
  var elt = document.getElementById("label_0");
 			   elt.style.color = "orange";
 			   elt.style.fontSize = "17px";
 			   elt.style.fontFamily = "monospace";
 			   elt.style.fontWeight = "bold";
-
 clignote("label_1",600);
 oppacity("label_0", -1);
-
 function myFunction() {
  
   setElementsIdAsName("LI");
@@ -80,8 +81,6 @@ function myFunction() {
   
   document.getElementById("test2").innerHTML = x.innerHTML; 
   
-  var prs = person;
-  document.getElementById("test3").innerHTML = prs.firstName; 
   //---------------
   changeElementColor("test1", "blue");
   changeElementFont("LI_3", "17px", "", "italic", "bold");
@@ -93,7 +92,6 @@ function myFunction() {
 function myFunction2(){
 	setElementValue("txt", "");
 }
-
 function MyFunction3(){
   var v = strMatcher(getElementValue('txtRegex'),getElementValue('rg'));
   setElementInnerHtml("test3",v);
@@ -110,10 +108,13 @@ function MyFunction3(){
    console.log(getListIntFromParagraph(getElementValue('txt')));
    console.log(getListDoubleFromParagraph(getElementValue('txt')));
    console.log(person.fullName());
-
 }
+simulateClick('scales');
 
-
+function MyFunction4(){
+ var x = idsGetter('h4', '3');
+ x.innerHTML = "get by id fonctionne";
+}
 
 
 </script>
