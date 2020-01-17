@@ -1,4 +1,28 @@
-				//---------- Retourne un tableau des elements appeler par leurs tagName ex: "LI"
+			//---------- Add ids ---------------------------
+
+			function idsAdder(TAG) {
+			  var x = document.getElementsByTagName(TAG);
+			  
+			  for(let i = 0; i<x.length; i++)
+					x[i].setAttribute("ids",TAG+"_"+i);
+
+			}			
+
+			//---------- get from ids ----------------------
+			
+			function idsGetter(TAG, index){
+				var x = document.getElementsByTagName(TAG);
+			  
+				for(let i = 0; i<x.length; i++){
+					if(x[i].getAttribute("ids") === TAG+"_"+index)
+						 return x[i];
+				}
+				return null;	
+			}
+
+
+
+			//---------- Retourne un tableau des elements appeler par leurs tagName ex: "LI"
 			function getByElementsTagName(elementsTagName){
 			 return document.getElementsByTagName(elementsTagName);;
 			}
