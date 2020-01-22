@@ -30,6 +30,7 @@
 <button onclick="setElementVisibility('test2', getElementValue('nb'))">visibility</button>
 <button onclick="MyFunction3()">regex test</button>
 <button onclick="simulateClick('scales')">simulate click</button>
+<button onclick="keyboardExcution('txt', 'Amine')">simulate keyboard</button>
 <button onclick="toFetchInfo('https://randomuser.me/api/?results=10')">testFetch</button>
 <button onclick="MyFunction4()">get by ids</button>
 
@@ -47,7 +48,13 @@
 
 
 <script>
-
+	
+function keyboardExcution(id, code){
+		simulateKeyAsString(code, "down",id);
+		simulateKeyAsString(code, "press",id);
+		simulateKeyAsString(code, "up", id);
+}
+	
 idsAdder("h4");
 
 dateAndHourOnEltHTML("dat");
