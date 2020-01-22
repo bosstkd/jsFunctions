@@ -343,3 +343,48 @@ function toFetchInfo(url){
 		  });   
 }
 
+//------- simulation de key event en utilisant un charCode -----------
+function simulateKeyAsChar (keyCode, type, id) {
+	var evtName = (typeof(type) === "string") ? "key" + type : "keydown";	
+	var elt = getById(id);
+	elt.focus();
+	var event = document.createEvent("KeyboardEvent");
+	
+		event.initKeyEvent(evtName,         
+						  true,                 
+						  true,                 
+						  window,          
+						  false,                     
+						  false,             
+						  false,             
+						  false,             
+					      keyCode,               
+						  0);       
+		elt.dispatchEvent(event);
+	
+}
+
+// Setup some tests
+
+var onKeyEvent = function (event) {
+	var state = "pressed";
+	
+	if (event.type !== "keypress") {
+		state = event.type.replace("key", "");
+	}
+	
+	console.log("Key with keyCode " + event.keyCode + " is " + state);
+};
+
+
+document.addEventListener("keypress", onKeyEvent, false);
+document.addEventListener("keydown", onKeyEvent, false);
+document.addEventListener("keyup", onKeyEvent, false);
+
+// Using the function
+/*
+simulateKey(38);
+simulateKey(38, "up");
+simulateKey(45, "press");
+*/
+
